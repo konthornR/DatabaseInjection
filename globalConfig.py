@@ -3,6 +3,19 @@ from table_config.trading import d_cust
 from table_config.trading import d_stat
 from table_config.company import compsec
 
+#Database Setting
+database_username = "root"
+database_password = "siamquant"
+database_host = "localhost"
+database_schema = "set"
+
+#DateRange
+dateFrom = "28012015"
+dateTo = "28012015"
+
+#ReadFiles
+readFiles = ["d_trade.Dat"]
+
 dateSetFormat = "%d/%m/%Y"
 dateTimeSetFormat = "%d/%m/%Y%H:%M"
 root_file_path = "C:/Users/admin/Downloads/PSIMS data test/" 

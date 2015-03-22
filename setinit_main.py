@@ -69,7 +69,7 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 	return
 
 try:
-	conn = mysql.connector.connect(user='root',password='067792862',host='localhost',database='set')
+	conn = mysql.connector.connect(user=globalConfig.database_username,password=globalConfig.database_password,host=globalConfig.database_host,database=globalConfig.database_schema)
 	mycursor = conn.cursor()
 
 	for readFile in readFiles:
