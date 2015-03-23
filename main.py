@@ -5,8 +5,8 @@ from mysql.connector import errorcode
 import globalConfig
 
 dateFileFormat = "%d%m%Y"
-readDateFrom = datetime.datetime.strptime("00000000",dateFileFormat)
-readDateTo = datetime.datetime.strptime("00000000",dateFileFormat)
+readDateFrom = datetime.datetime.strptime("23012015",dateFileFormat)
+readDateTo = datetime.datetime.strptime("23012015",dateFileFormat)
 readFiles = ["compsec.Dat"]
 
 def readLineAndSendToDatabase(lines,fileConfig,mycursor):
