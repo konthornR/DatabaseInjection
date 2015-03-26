@@ -5,9 +5,9 @@ from mysql.connector import errorcode
 import globalConfig
 
 dateFileFormat = "%d%m%Y"
-readDateFrom = datetime.datetime.strptime("23012015",dateFileFormat)
-readDateTo = datetime.datetime.strptime("23012015",dateFileFormat)
-readFiles = ["compsec.Dat"]
+readDateFrom = datetime.datetime.strptime(globalConfig.dateFrom,dateFileFormat)
+readDateTo = datetime.datetime.strptime(globalConfig.dateTo,dateFileFormat)
+readFiles = globalConfig.readFiles
 
 def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 	for line in lines:
@@ -65,7 +65,7 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 	return
 
 try:
-	conn = mysql.connector.connect(user='root',password='067792862',host='localhost',database='set')
+	conn = mysql.connector.connect(user=globalConfig.database_username,password=globalConfig.database_password,host=globalConfig.database_host,database=globalConfig.database_schema)
 	mycursor = conn.cursor()
 
 	readingDate = readDateFrom
