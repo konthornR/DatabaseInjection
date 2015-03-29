@@ -10,18 +10,18 @@ configs = [{
 					"EndPosition" : 21,
 					"Type" : "String",
 					"IsPrimaryKey" : False
-				},{
-					"Name" : "SecurityNameFullNameThai",
-					"StartPosition" : 22,
-					"EndPosition" : 81,
-					"Type" : "String",
-					"IsPrimaryKey" : False
-				},{
-					"Name" : "SecurityNameFullNameEnglish",
-					"StartPosition" : 82,
-					"EndPosition" : 141,
-					"Type" : "String",
-					"IsPrimaryKey" : False
+				#},{
+				#	"Name" : "SecurityNameFullNameThai",
+				#	"StartPosition" : 22,
+				#	"EndPosition" : 81,
+				#	"Type" : "String",
+				#	"IsPrimaryKey" : False
+				#},{
+				#	"Name" : "SecurityNameFullNameEnglish",
+				#	"StartPosition" : 82,
+				#	"EndPosition" : 141,
+				#	"Type" : "String",
+				#	"IsPrimaryKey" : False
 				},{
 					"Name" : "CompanyId",
 					"StartPosition" : 142,
@@ -310,24 +310,24 @@ configs = [{
 					"EndPosition" : 602,
 					"Type" : "Date",
 					"IsPrimaryKey" : False
-				},{
-					"Name" : "NameOfDetailedFileThai",
-					"StartPosition" : 603,
-					"EndPosition" : 614,
-					"Type" : "String",
-					"IsPrimaryKey" : False
+				#},{
+				#	"Name" : "NameOfDetailedFileThai",
+				#	"StartPosition" : 603,
+				#	"EndPosition" : 614,
+				#	"Type" : "String",
+				#	"IsPrimaryKey" : False
 				},{
 					"Name" : "NameOfDetailedFileEnglish",
 					"StartPosition" : 615,
 					"EndPosition" : 626,
 					"Type" : "String",
 					"IsPrimaryKey" : False
-				},{
-					"Name" : "MarketMakerNameThai",
-					"StartPosition" : 627,
-					"EndPosition" : 686,
-					"Type" : "String",
-					"IsPrimaryKey" : False
+				#},{
+				#	"Name" : "MarketMakerNameThai",
+				#	"StartPosition" : 627,
+				#	"EndPosition" : 686,
+				#	"Type" : "String",
+				#	"IsPrimaryKey" : False
 				},{
 					"Name" : "MarketMakerNameEnglish",
 					"StartPosition" : 687,
@@ -364,11 +364,11 @@ configs = [{
 					"EndPosition" : 837,
 					"Type" : "String",
 					"IsPrimaryKey" : False
-				},{
-					"Name" : "URLOfSecurity",
-					"StartPosition" : 838,
-					"EndPosition" : 917,
-					"Type" : "String",
-					"IsPrimaryKey" : False
+				#},{
+				#	"Name" : "URLOfSecurity",
+				#	"StartPosition" : 838,
+				#	"EndPosition" : 917,
+				#	"Type" : "String",
+				#	"IsPrimaryKey" : False
 				}
 				]

@@ -23,7 +23,7 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 			content = content.strip()
 			if content: 
 				if config["Type"] == "String":
-					content = "'"+str(content)+"'"
+					content = '"'+str(content)+'"'
 				elif config["Type"] == "Date":
 					content = datetime.datetime.strptime(content,globalConfig.dateSetFormat)
 					content = content.strftime("%Y%m%d")
@@ -53,14 +53,15 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 			infoContent.append(sqlContentInput[contentKeyName])
 			setphase.append(contentKeyName+"="+sqlContentInput[contentKeyName])	
 			
-		if sqlContentInput["RecordFlag"] == "'I'": #Insert into Database Only Primary Key						
+		if sqlContentInput["RecordFlag"] == '"I"': #Insert into Database Only Primary Key						
+			#print("INSERT INTO "+ fileConfig["DatabaseTableName"] +" ("+ ','.join(primaryKeyNames) +") VALUES("+  ','.join(primaryContent) +")")
 			mycursor.execute("INSERT INTO "+ fileConfig["DatabaseTableName"] +" ("+ ','.join(primaryKeyNames) +") VALUES("+  ','.join(primaryContent) +")")
 
-		if sqlContentInput["RecordFlag"] == "'I'" or sqlContentInput["RecordFlag"] == "'U'": #Insert(Update) into Database Content using Primary Key index	
+		if sqlContentInput["RecordFlag"] == '"I"' or sqlContentInput["RecordFlag"] == '"U"': #Insert(Update) into Database Content using Primary Key index	
 			#print("UPDATE "+ fileConfig["DatabaseTableName"] +" SET "+','.join(setphase)+" WHERE "+' AND '.join(wherephase))
 			mycursor.execute("UPDATE "+ fileConfig["DatabaseTableName"] +" SET "+','.join(setphase)+" WHERE "+' AND '.join(wherephase))
 		
-		if sqlContentInput["RecordFlag"] == "'D'":
+		if sqlContentInput["RecordFlag"] == '"D"':
 			mycursor.execute("DELETE FROM "+ fileConfig["DatabaseTableName"] +" WHERE "+' AND '.join(wherephase))
 	return
 
