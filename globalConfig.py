@@ -10,11 +10,11 @@ database_host = "localhost"
 database_schema = "set"
 
 #DateRange
-dateFrom = "28012015"
-dateTo = "28012015"
+dateFrom = "01011990"
+dateTo = "01011990"
 
 #ReadFiles
-readFiles = ["d_trade.Dat"]
+readFiles = ["compsec.Dat"]
 
 dateSetFormat = "%d/%m/%Y"
 dateTimeSetFormat = "%d/%m/%Y%H:%M"

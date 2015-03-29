@@ -7,13 +7,13 @@ import globalConfig
 dateFileFormat = "%d%m%Y"
 #readDateFrom = datetime.datetime.strptime("00000000",dateFileFormat)
 #readDateTo = datetime.datetime.strptime("00000000",dateFileFormat)
-readFiles = ["d_trade.Dat"]
-fileName = "d_trade"
+readFiles = ["d_cust.Dat"]
+fileName = "d_cust"
 
-yearFrom = 1975
-yearTo = 2000
+yearFrom = 1992
+yearTo = 2015
 
-def readLineAndSendToDatabase(lines,fileConfig,mycursor):
+def readLineAndSendToDatabase(lines,fileConfig,mycursor,conn):
 	for line in lines:
 		sqlContentInput = {}	
 		primaryKeyNames = []
@@ -56,7 +56,6 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 		for contentKeyName in contentKeyNames:
 			infoContent.append(sqlContentInput[contentKeyName])
 			setphase.append(contentKeyName+"="+sqlContentInput[contentKeyName])	
-			
 		if sqlContentInput["RecordFlag"] == "'I'": #Insert into Database Only Primary Key						
 			mycursor.execute("INSERT INTO "+ fileConfig["DatabaseTableName"] +" ("+ ','.join(primaryKeyNames) +") VALUES("+  ','.join(primaryContent) +")")
 
@@ -66,6 +65,7 @@ def readLineAndSendToDatabase(lines,fileConfig,mycursor):
 		
 		if sqlContentInput["RecordFlag"] == "'D'":
 			mycursor.execute("DELETE FROM "+ fileConfig["DatabaseTableName"] +" WHERE "+' AND '.join(wherephase))
+
 	return
 
 try:
@@ -80,7 +80,7 @@ try:
 				text_file = open(globalConfig.root_file_path+"00000000"+fileConfig["FilePath"]+fileName+str(yearFrom)+".Dat","r")
 				lines = text_file.readlines()
 				text_file.close()				
-				readLineAndSendToDatabase(lines,fileConfig,mycursor)	
+				readLineAndSendToDatabase(lines,fileConfig,mycursor,conn)	
 				conn.commit()	
 				print("Commit into Database for date:"+"00000000"+ " File:"+fileConfig["FileName"]+" In Year:"+ str(yearFrom))				
 			except IOError:
