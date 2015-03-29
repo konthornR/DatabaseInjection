@@ -2,19 +2,21 @@ from table_config.trading import d_trade
 from table_config.trading import d_cust
 from table_config.trading import d_stat
 from table_config.company import compsec
+from table_config.company import dividend
+from table_config.company import adjfactor
 
 #Database Setting
 database_username = "root"
-database_password = "siamquant"
+database_password = "067792862"
 database_host = "localhost"
-database_schema = "set"
+database_schema = "set2"
 
 #DateRange
-dateFrom = "28012015"
-dateTo = "28012015"
+dateFrom = "01011990"
+dateTo = "01011990"
 
 #ReadFiles
-readFiles = ["d_trade.Dat"]
+readFiles = ["adjfactor.Dat"]
 
 dateSetFormat = "%d/%m/%Y"
 dateTimeSetFormat = "%d/%m/%Y%H:%M"
@@ -41,6 +43,16 @@ global_configs = [{
 					"FilePath" : company_file_path,
 					"DatabaseTableName" : "compsec",
 					"Config" : compsec.configs
+				},{
+					"FileName" : "dividend.Dat",
+					"FilePath" : company_file_path,
+					"DatabaseTableName" : "dividend",
+					"Config" : dividend.configs
+				},{
+					"FileName" : "adjfactor.Dat",
+					"FilePath" : company_file_path,
+					"DatabaseTableName" : "adjfactor",
+					"Config" : adjfactor.configs
 				}]
 
 def getFileConfig(fileName):
